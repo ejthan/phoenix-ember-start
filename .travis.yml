@@ -1,21 +1,22 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 sudo: false
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - $HOME/.npm
 before_install:
-  - npm config set spin false
-  - npm install -g phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-
+- npm install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Nj2cqdQMh20MbTYzEb+CPaOJj+CD09nkkK9QpFDBKU6TfxcvYu2C96hJYaF9MV4txDCenGrLNpVky6lYx76HazS6zhvPj7+rmk71GgIMkB1aXhq078JU0RDl1HTka6pRtPG5cTxKifBGx/yZb0rPDlB5BX19ctHth9wZYGnbbDTqe/1jH38KFZGex32LG+yy3P4sjrY1hTJwZO2l93zv2ijw7APMWnVJu0ubBZefyPWFNgq4/La4NXaZwRJDzXZl0zRIhFdujzhPg3ruWvf9v73Qrxita/Rtx+KgWeUq/ttt2Es9lon/ku5qkhGp8cgT7Y7UTHo+I3vd2OVzb5weXzHhOaeyBv1hU8dnanqAVacjkb4NaujpD7wCdtAIHwTpXNNIsI55O2Y0pb2aKWKyQ1k1klmMnKpgWb2XBwMv9bwFQl6gAeckfWRvMshFSGLu3KjlKltbRIt5wrgN0kno8jPCCIcZrrod3F7xBdZy+DGCSHPG2f6q0LBDDtNirsUoO+wASKVPzoMuaEiqwCgi/1fOxNgVSlmmbGm8hZi8UxyztMLlm7g8Mjrlc9fsGGGNvQfpsDByqHPK+UBJGYAD/BDMIpZ7rnEi1aYDRgDXFHU/WweOyLsGtfio0FVQg6MMnljK1snm1v/wjzUV8Fv/F05Qcd5H5L8sNoxbNIxIGzw=
+  app: afternoon-crag-63132
+  on:
+    repo: ejthan/phoenix-ember-start
